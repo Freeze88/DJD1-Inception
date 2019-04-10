@@ -8,7 +8,7 @@ You should have received a copy of the license along with this
 work. If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/>.
 -->
 
-# Desenvolvimento do jogo final do curso - The Seed 2018/2019
+# Desenvolvimento do jogo final do ano - The Seed 2018/2019
 
 Este repositório é para ser acedido pelos membros do grupo, Pedro Inácio, Afonso Rosa e André Vitorino,
 para ajudar no desenvolvimento do projeto final para DJDI e GameArtII do curso de [Videojogos][licvideo] da [ULHT].
