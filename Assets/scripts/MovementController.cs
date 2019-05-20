@@ -18,6 +18,7 @@ public class MovementController : MonoBehaviour
     SpriteRenderer rot;
     Vector3 moveVector;
     Vector3 jumpForce;
+    CapsuleCollider2D collider;
 
     //Instead of using rigibbody forces creates a constant vector for the gravity
     Vector3 gravity = new Vector3(0f, -15.0f, 0f);
@@ -37,6 +38,8 @@ public class MovementController : MonoBehaviour
         //Puts the components of the objects on the objects defined above
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        collider = GetComponent<CapsuleCollider2D>();
+        rot = GetComponent<SpriteRenderer>();
 
         //Since gravity is now a vector the rigid body gravity is not used, hence, 0 to not affect other functions (if it was bigger than 1 it would always be dragging down and the isGrounded wouldn't work)
         rb.gravityScale = 0;
@@ -81,22 +84,43 @@ public class MovementController : MonoBehaviour
         {
             gravityFlip = !gravityFlip;
             gravity.y *= -1;
-            transform.rotation.x 
+            
+
+            if (gravityFlip)
+            {
+                transform.rotation = new Quaternion(0.0f, 0.0f, 180.0f, 0.0f);
+                transform.position = new Vector3(transform.position.x, transform.position.y + 100, transform.position.z);
+            }
+            else
+            {
+                transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
+                transform.position = new Vector3(transform.position.x, transform.position.y - 100, transform.position.z);
+            }
         }
+        
 
-        //_____________________________________Rotates the player depending on the direction_________________________________________
+        if (!gravityFlip)
+        {
+            if (moveVector.x < 0.0f && transform.rotation.y == 0.0f)
+                //Rotates the player 180 degrees on the Y
+                transform.rotation = transform.rotation * Quaternion.Euler(0.0f, 180.0f, 0.0f);
 
-        //If the X of the player is negative and the rotation of the Y is 0
-        if (moveVector.x < 0.0f && transform.rotation.y == 0.0f)
-            //Rotates the player 180 degrees on the Y
-            transform.rotation = transform.rotation * Quaternion.Euler(0.0f, 180.0f, 0.0f);
-
-        //If the X of the player is positive and the rotation of the Y is negative
-        else if (moveVector.x > 0.0f && transform.rotation.y < 0.0f)
-            //Rotates the player back to his original rotation
-            transform.rotation = transform.rotation * Quaternion.Euler(0.0f, -180.0f, 0.0f);
-
-
+            //If the X of the player is positive and the rotation of the Y is negative
+            else if (moveVector.x > 0.0f && transform.rotation.y < 0.0f)
+                //Rotates the player back to his original rotation
+                transform.rotation = transform.rotation * Quaternion.Euler(0.0f, -180.0f, 0.0f);
+        }
+        else if (gravityFlip)
+        {
+            if (moveVector.x > 0.0f && transform.rotation.z > 0.0f)
+            {
+                transform.rotation = transform.rotation * Quaternion.Euler(0.0f, 180.0f, 0.0f);
+            }
+            else if (moveVector.x < 0.0f && transform.rotation.x < 0.0f)
+            {
+                transform.rotation = transform.rotation * Quaternion.Euler(0.0f, -180.0f, 0.0f);
+            }
+        }
     }
 }
 
