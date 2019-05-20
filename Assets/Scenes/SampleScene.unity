@@ -121,7 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 463947387}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 502458369}
   - component: {fileID: 502458368}
   - component: {fileID: 502458367}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: level blocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 517000307}
   - component: {fileID: 517000306}
   - component: {fileID: 517000305}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: level blocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -467,7 +467,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.050980397, g: 0.09411766, b: 0.07450981, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -525,7 +525,7 @@ GameObject:
   - component: {fileID: 642803845}
   - component: {fileID: 642803844}
   - component: {fileID: 642803843}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: level blocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -653,7 +653,7 @@ GameObject:
   - component: {fileID: 676604286}
   - component: {fileID: 676604285}
   - component: {fileID: 676604284}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: level blocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5479,7 +5479,7 @@ GameObject:
   - component: {fileID: 889933764}
   - component: {fileID: 889933763}
   - component: {fileID: 889933762}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: level blocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5607,7 +5607,7 @@ GameObject:
   - component: {fileID: 905769224}
   - component: {fileID: 905769223}
   - component: {fileID: 905769222}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: level blocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5891,7 +5891,7 @@ GameObject:
   - component: {fileID: 1165207302}
   - component: {fileID: 1165207301}
   - component: {fileID: 1165207300}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: level blocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6019,7 +6019,7 @@ GameObject:
   - component: {fileID: 1188681348}
   - component: {fileID: 1188681347}
   - component: {fileID: 1188681346}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: level blocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6147,7 +6147,7 @@ GameObject:
   - component: {fileID: 1414004101}
   - component: {fileID: 1414004100}
   - component: {fileID: 1414004099}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: level blocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6275,7 +6275,7 @@ GameObject:
   - component: {fileID: 1611336679}
   - component: {fileID: 1611336678}
   - component: {fileID: 1611336677}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: level blocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6482,7 +6482,7 @@ GameObject:
   - component: {fileID: 1831080244}
   - component: {fileID: 1831080243}
   - component: {fileID: 1831080242}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: level blocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6610,7 +6610,7 @@ GameObject:
   - component: {fileID: 1831113768}
   - component: {fileID: 1831113767}
   - component: {fileID: 1831113766}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: level blocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6738,7 +6738,7 @@ GameObject:
   - component: {fileID: 1898462740}
   - component: {fileID: 1898462739}
   - component: {fileID: 1898462738}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: level blocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6866,7 +6866,7 @@ GameObject:
   - component: {fileID: 1922273233}
   - component: {fileID: 1922273232}
   - component: {fileID: 1922273231}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: level blocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6994,7 +6994,7 @@ GameObject:
   - component: {fileID: 1975244879}
   - component: {fileID: 1975244878}
   - component: {fileID: 1975244877}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: level blocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7122,7 +7122,7 @@ GameObject:
   - component: {fileID: 2077697489}
   - component: {fileID: 2077697488}
   - component: {fileID: 2077697487}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: level blocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7250,7 +7250,7 @@ GameObject:
   - component: {fileID: 2083055696}
   - component: {fileID: 2083055698}
   - component: {fileID: 2083055699}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: level blocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7441,6 +7441,56 @@ PrefabInstance:
     - target: {fileID: 8573705591599468834, guid: 09cc32ed1fda85241a557d11f9138981,
         type: 3}
       propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573705591599468835, guid: 09cc32ed1fda85241a557d11f9138981,
+        type: 3}
+      propertyPath: jump
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573705591599468835, guid: 09cc32ed1fda85241a557d11f9138981,
+        type: 3}
+      propertyPath: speed
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573705591599468835, guid: 09cc32ed1fda85241a557d11f9138981,
+        type: 3}
+      propertyPath: isGrounded
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072096371277446850, guid: 09cc32ed1fda85241a557d11f9138981,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 1.5019132
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072096371277446850, guid: 09cc32ed1fda85241a557d11f9138981,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2.2033901
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072096371277446850, guid: 09cc32ed1fda85241a557d11f9138981,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.8287632
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573705591599468836, guid: 09cc32ed1fda85241a557d11f9138981,
+        type: 3}
+      propertyPath: m_Mass
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573705591599468836, guid: 09cc32ed1fda85241a557d11f9138981,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573705591599468836, guid: 09cc32ed1fda85241a557d11f9138981,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573705591599468836, guid: 09cc32ed1fda85241a557d11f9138981,
+        type: 3}
+      propertyPath: m_UseAutoMass
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

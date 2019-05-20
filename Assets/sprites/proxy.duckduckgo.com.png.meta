@@ -6,6 +6,7 @@ TextureImporter:
     21300002: proxy.duckduckgo.com_1
     21300004: proxy.duckduckgo.com_2
     21300006: proxy.duckduckgo.com_3
+    21300008: proxy.duckduckgo.com_4
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -117,8 +118,8 @@ TextureImporter:
         y: 0
         width: 299.75
         height: 297
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -137,8 +138,8 @@ TextureImporter:
         y: 0
         width: 300
         height: 297
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -157,8 +158,8 @@ TextureImporter:
         y: 0
         width: 300
         height: 297
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -177,14 +178,34 @@ TextureImporter:
         y: 0
         width: 300
         height: 297
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: fa1f60f8b4cb33244a14f98ca4368a03
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: proxy.duckduckgo.com_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1199
+        height: 297
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0091c0efb6b5c2d4fb7ee02b21070b12
       vertices: []
       indices: 
       edges: []
