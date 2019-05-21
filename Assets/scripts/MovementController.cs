@@ -9,8 +9,10 @@ public class MovementController : MonoBehaviour
     [SerializeField] bool gravityFlip = false;
     [SerializeField] bool isGrounded;
     [SerializeField] bool Jump;
-    [SerializeField] float speed = 100;
-    [SerializeField] float jump = 8.0f;
+    [SerializeField] float speed = 450;
+    [SerializeField] float jump = 730.0f;
+    [SerializeField] float MaxJumpTime = 30.0f;
+    [SerializeField] float Timer;
 
     //Defines the name of the objects on the Player unity object
     Rigidbody2D rb;
@@ -21,13 +23,13 @@ public class MovementController : MonoBehaviour
     CapsuleCollider2D collider;
 
     //Instead of using rigibbody forces creates a constant vector for the gravity
-    Vector3 gravity = new Vector3(0f, -15.0f, 0f);
+    Vector3 gravity = new Vector3(0f, -20.0f, 0f);
 
     bool onGround
     {
         get
         {
-            Collider2D collider = Physics2D.OverlapCircle(transform.position, 0.0f, LayerMask.GetMask("Ground"));
+            Collider2D collider = Physics2D.OverlapCircle(transform.position, 10.0f, LayerMask.GetMask("Ground"));
             return (collider != null);
         }
     }
@@ -48,18 +50,33 @@ public class MovementController : MonoBehaviour
     void FixedUpdate()
     {
         isGrounded = onGround;
-
+        
         if (Jump)
         {
-            jumpForce.y = gravityFlip ? -jump : jump;
+            if (isGrounded)
+            {
+                Timer = 0;
+                gravity.y = gravityFlip ? 8.0f : -8.0f;
+                jumpForce.y = gravityFlip ? -jump : jump;
+            }
+            if (Timer > MaxJumpTime)
+            {
+                Jump = !Jump;
+            }
+            Timer++;
         }
-        if (!isGrounded)
+        else if (!Jump)
         {
-            jumpForce.y += 100 * gravity.y * Time.deltaTime;
+            gravity.y = gravityFlip ? 20.0f : -20.0f;
+        }
+
+        if (isGrounded)
+        {
+            jumpForce.y += gravity.y * Time.deltaTime;
         }
         else
         {
-            jumpForce.y += gravity.y * Time.deltaTime;
+            jumpForce.y += 100 * gravity.y * Time.deltaTime;
         }
 
         moveVector = Vector3.zero;
@@ -77,8 +94,8 @@ public class MovementController : MonoBehaviour
 
     private void Update()
     {
-
-        Jump = (Input.GetKey(KeyCode.Space) && isGrounded);
+        
+        Jump = (Input.GetButton("Jump"));
 
         if (Input.GetKeyDown(KeyCode.W) && isGrounded)
         {
