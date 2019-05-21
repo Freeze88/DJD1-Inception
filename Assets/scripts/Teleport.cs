@@ -40,9 +40,11 @@ public class Teleport : MonoBehaviour
         
         InsidePortal = isIn;
 
-        if (InsidePortal && Timer <= 0)
+        // Checks if the player is inside the portal
+        // and if the E key is pressed 
+        // teleports him afterwards
+        if (InsidePortal && Input.GetKey(KeyCode.E))
         {
-            Timer = 1000;
             Player.position = teleportTo.position;
         }
     }
