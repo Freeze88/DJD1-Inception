@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
-
-    //Two bools created to check is the player is touching the floor or is in the air
-    [SerializeField] bool gravityFlip = false;
-    [SerializeField] bool isGrounded;
-    [SerializeField] bool Jump;
-    [SerializeField] float speed = 450;
-    [SerializeField] float jump = 730.0f;
-    [SerializeField] float MaxJumpTime = 30.0f;
+    [SerializeField] bool  gravityFlip;
+    [SerializeField] bool  isGrounded;
+    [SerializeField] bool  Jump;
+    [SerializeField] bool  Fall;
+    [SerializeField] float speed =        450.0f;
+    [SerializeField] float jump =         650.0f;
+    [SerializeField] float MaxJumpTime =  20.0f;
+    [SerializeField] float jumpCD =       0.0f;
+    [SerializeField] float Maxgravity =   25.0f;
     [SerializeField] float Timer;
 
     //Defines the name of the objects on the Player unity object
-    Rigidbody2D rb;
-    Animator anim;
-    SpriteRenderer rot;
-    Vector3 moveVector;
-    Vector3 jumpForce;
-    CapsuleCollider2D collider;
+    Rigidbody2D         rb;
+    Animator            anim;
+    Vector3             moveVector;
+    Vector3             jumpForce;
+    public Transform    platform;
 
     //Instead of using rigibbody forces creates a constant vector for the gravity
-    Vector3 gravity = new Vector3(0f, -40.0f, 0f);
+    Vector3 gravity = new Vector3(0f, -20.0f, 0f);
 
     bool onGround
     {
@@ -33,17 +33,23 @@ public class MovementController : MonoBehaviour
             return (collider != null);
         }
     }
-
-    //When the object is started
+    bool platformHit
+    {
+        get
+        {
+            Collider2D collider = Physics2D.OverlapCircle(platform.position, 2.0f, LayerMask.GetMask("Ground"));
+            return (collider != null);
+        }
+    }
     void Awake()
     {
         //Puts the components of the objects on the objects defined above
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        collider = GetComponent<CapsuleCollider2D>();
 
         //Since gravity is now a vector the rigid body gravity is not used, hence, 0 to not affect other functions (if it was bigger than 1 it would always be dragging down and the isGrounded wouldn't work)
         rb.gravityScale = 0;
+        gravityFlip = false;
     }
 
     void FixedUpdate()
@@ -51,9 +57,8 @@ public class MovementController : MonoBehaviour
         isGrounded = onGround;
 
         moveVector = rb.velocity;
-
         moveVector = new Vector3(Input.GetAxis("Horizontal") * speed, moveVector.y);
-        Debug.Log(gravity.y);
+
         if (Jump)
         {
             if (isGrounded)
@@ -63,39 +68,42 @@ public class MovementController : MonoBehaviour
             }
             Timer++;
 
-            gravity.y = gravityFlip ? 10.0f +Timer *2: -10.0f - Timer *2;
+            gravity.y = gravityFlip ? 1.0f +Timer *1.5f: -1.0f - Timer *1.5f;
+
+            if (Timer >= MaxJumpTime) jumpCD = 0;
         }
         else
+            gravity.y = gravityFlip ? Maxgravity : -Maxgravity;
+
+        if (platformHit)
         {
-            gravity.y = gravityFlip ? 40.0f : -40.0f;
+            gravity.y = gravityFlip ? Maxgravity : -Maxgravity;
+            jumpCD = 0;
         }
 
         if (isGrounded)
         {
             moveVector.y += gravity.y * Time.deltaTime;
+            if (jumpCD < 10)
+                jumpCD++;
         }
         else
-        {
             moveVector.y += 100 * gravity.y * Time.deltaTime;
-        }
-
+        
+        Fall = (!Jump && !onGround);
         moveVector.x = Input.GetAxis("Horizontal") * speed;
-
-        //jumpForce = Vector3.Lerp(jumpForce, Vector3.zero, Time.deltaTime);
 
         rb.velocity = moveVector;
 
-        bool Fall = (!Jump && !onGround);
-
         anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+        anim.SetFloat("Speedy", Mathf.Abs(rb.velocity.y));
         anim.SetBool("Jump", Jump);
         anim.SetBool("Fall", Fall);
     }
 
     private void Update()
     {
-        
-        Jump = (Input.GetButton("Jump"));
+        Jump = (Input.GetButton("Jump") && jumpCD >= 10);
 
         if (Input.GetKeyDown(KeyCode.W) && isGrounded)
         {
