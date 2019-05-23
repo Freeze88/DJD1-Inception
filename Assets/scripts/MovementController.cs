@@ -23,7 +23,7 @@ public class MovementController : MonoBehaviour
     CapsuleCollider2D collider;
 
     //Instead of using rigibbody forces creates a constant vector for the gravity
-    Vector3 gravity = new Vector3(0f, -20.0f, 0f);
+    Vector3 gravity = new Vector3(0f, -40.0f, 0f);
 
     bool onGround
     {
@@ -41,7 +41,6 @@ public class MovementController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         collider = GetComponent<CapsuleCollider2D>();
-        rot = GetComponent<SpriteRenderer>();
 
         //Since gravity is now a vector the rigid body gravity is not used, hence, 0 to not affect other functions (if it was bigger than 1 it would always be dragging down and the isGrounded wouldn't work)
         rb.gravityScale = 0;
@@ -50,46 +49,47 @@ public class MovementController : MonoBehaviour
     void FixedUpdate()
     {
         isGrounded = onGround;
-        
+
+        moveVector = rb.velocity;
+
+        moveVector = new Vector3(Input.GetAxis("Horizontal") * speed, moveVector.y);
+        Debug.Log(gravity.y);
         if (Jump)
         {
             if (isGrounded)
             {
                 Timer = 0;
-                gravity.y = gravityFlip ? 8.0f : -8.0f;
-                jumpForce.y = gravityFlip ? -jump : jump;
-            }
-            if (Timer > MaxJumpTime)
-            {
-                Jump = !Jump;
+                moveVector.y = gravityFlip ? -jump : jump;
             }
             Timer++;
+
+            gravity.y = gravityFlip ? 10.0f +Timer *2: -10.0f - Timer *2;
         }
-        else if (!Jump)
+        else
         {
-            gravity.y = gravityFlip ? 20.0f : -20.0f;
+            gravity.y = gravityFlip ? 40.0f : -40.0f;
         }
 
         if (isGrounded)
         {
-            jumpForce.y += gravity.y * Time.deltaTime;
+            moveVector.y += gravity.y * Time.deltaTime;
         }
         else
         {
-            jumpForce.y += 100 * gravity.y * Time.deltaTime;
+            moveVector.y += 100 * gravity.y * Time.deltaTime;
         }
-
-        moveVector = Vector3.zero;
 
         moveVector.x = Input.GetAxis("Horizontal") * speed;
 
-        jumpForce = Vector3.Lerp(jumpForce, Vector3.zero, Time.deltaTime);
-
-        moveVector += jumpForce;
+        //jumpForce = Vector3.Lerp(jumpForce, Vector3.zero, Time.deltaTime);
 
         rb.velocity = moveVector;
 
+        bool Fall = (!Jump && !onGround);
+
         anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+        anim.SetBool("Jump", Jump);
+        anim.SetBool("Fall", Fall);
     }
 
     private void Update()
