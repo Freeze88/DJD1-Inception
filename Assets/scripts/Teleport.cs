@@ -6,7 +6,7 @@ public class Teleport : MonoBehaviour
 {
     public Transform teleportTo;
     public Transform Player;
-    [SerializeField]float Timer;
+    [SerializeField] float Timer;
     bool InsidePortal;
 
     bool isIn
@@ -24,7 +24,6 @@ public class Teleport : MonoBehaviour
 
     void FixedUpdate()
     {
-
         if (Timer <= 0)
         {
             Timer = 0;
@@ -37,12 +36,10 @@ public class Teleport : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         InsidePortal = isIn;
 
-        if (InsidePortal && Timer <= 0)
+        if (InsidePortal && Input.GetKeyDown(KeyCode.E))
         {
-            Timer = 1000;
             Player.position = teleportTo.position;
         }
     }
