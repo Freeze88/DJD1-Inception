@@ -95,12 +95,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b935d505365a57c4fa4fd66a04256fe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 10000
-  maxSpeed: 400
+  gravityFlip: 0
+  isGrounded: 0
+  Jump: 0
+  Fall: 0
   speed: 300
-  drag: 1
   jump: 600
-  cooldown: 0
+  MaxJumpTime: 20
+  jumpCD: 0
+  Maxgravity: 25
+  Timer: 0
+  platform: {fileID: 0}
 --- !u!50 &8573705591599468836
 Rigidbody2D:
   serializedVersion: 4
