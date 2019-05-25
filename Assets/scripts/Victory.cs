@@ -38,7 +38,7 @@ public class Victory : MonoBehaviour
     {
         InsidePortal = isIn;
 
-        if (InsidePortal)
+        if (InsidePortal && Input.GetKeyDown(KeyCode.E))
         {
             Application.Quit();
         }
