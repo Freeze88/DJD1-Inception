@@ -4,20 +4,11 @@ using UnityEngine;
 
 public class Teleport : MonoBehaviour
 {
-    bool isGrounded;
     public Transform teleportTo;
     public Transform Player;
     [SerializeField] float Timer;
     bool InsidePortal;
 
-    bool onGround
-    {
-        get
-        {
-            Collider2D collider = Physics2D.OverlapCircle(transform.position, 10.0f, LayerMask.GetMask("Ground"));
-            return (collider != null);
-        }
-    }
     bool isIn
     {
         get
@@ -45,10 +36,9 @@ public class Teleport : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isGrounded = onGround;
         InsidePortal = isIn;
 
-        if (InsidePortal && Input.GetKeyDown(KeyCode.E) && isGrounded)
+        if (InsidePortal && Input.GetKeyDown(KeyCode.E))
         {
             Player.position = teleportTo.position;
         }
