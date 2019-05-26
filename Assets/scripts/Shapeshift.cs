@@ -36,17 +36,15 @@ public class Shapeshift : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q) )
         {
             shapeshiftTimer = shapeshiftDuration;
-            SetShapeShiftEffect(isShapeshifted);
         }
-
+        
         if (shapeshiftTimer > 0.0f)
         {
             shapeshiftTimer -= Time.deltaTime;
         }
-    }
 
-    void SetShapeShiftEffect(bool isShapeshifted)
-    {
         if (isShapeshifted) shapeshiftSprite.color = Color.red;
+
+        if (shapeshiftTimer <= 0.0f) shapeshiftSprite.color = Color.white;
     }
 }

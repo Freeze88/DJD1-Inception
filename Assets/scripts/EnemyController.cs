@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviour
     Rigidbody2D rigidBody;
     SpriteRenderer sprite;
     float moveDir = 1.0f;
+    public Shapeshift Shapeshift;
 
     void Start()
     {
@@ -55,11 +56,13 @@ public class EnemyController : MonoBehaviour
 
             int grabCollision = Physics2D.OverlapCollider(grabCollider, filter, results);
 
-            if (grabCollision > 0)
+            if (grabCollision > 0 && !Shapeshift.isShapeshifted)
             {
                 Debug.Log("Collider with Player!");
                 
-                player.position = teleportTo.position;
+                {
+                    player.position = teleportTo.position;
+                }
             }
         }
     }
