@@ -7,6 +7,9 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float moveSpeed = 75.0f;
     [SerializeField] Transform groundSensor;
     [SerializeField] Transform wallSensor;
+    [SerializeField] Collider2D grabCollider;
+    [SerializeField] Transform teleportTo;
+    [SerializeField] Transform player;
 
     Rigidbody2D rigidBody;
     SpriteRenderer sprite;
@@ -42,12 +45,25 @@ public class EnemyController : MonoBehaviour
                 moveDir = -moveDir;
             }
         }
+        if (grabCollider)
+        {
+            ContactFilter2D filter = new ContactFilter2D();
+            filter.ClearLayerMask();
+            filter.SetLayerMask(LayerMask.GetMask("Player"));
 
-        ContactFilter2D contactFilter = new ContactFilter2D();
-        contactFilter.ClearLayerMask();
-        contactFilter.SetLayerMask(LayerMask.GetMask("Player"));
+            Collider2D[] results = new Collider2D[8];
 
-        Collider2D[] results = new Collider2D[8];
+            int grabCollision = Physics2D.OverlapCollider(grabCollider, filter, results);
+
+            if (grabCollision > 0)
+            {
+                Debug.Log("Collider with Player!");
+                player.position = teleportTo.position;
+            }
+
+
+        }
+        
     }
 
     private void OnDrawGizmosSelected()
