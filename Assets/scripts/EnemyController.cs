@@ -58,12 +58,10 @@ public class EnemyController : MonoBehaviour
             if (grabCollision > 0)
             {
                 Debug.Log("Collider with Player!");
+                
                 player.position = teleportTo.position;
             }
-
-
         }
-        
     }
 
     private void OnDrawGizmosSelected()
