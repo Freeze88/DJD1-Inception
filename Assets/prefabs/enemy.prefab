@@ -103,6 +103,7 @@ MonoBehaviour:
   grabCollider: {fileID: 1008465773748369280}
   teleportTo: {fileID: 0}
   player: {fileID: 0}
+  Shapeshift: {fileID: 0}
 --- !u!50 &1008465773748369281
 Rigidbody2D:
   serializedVersion: 4
@@ -138,7 +139,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -20}
-  m_Size: {x: 110, y: 130}
+  m_Size: {x: 120, y: 130}
   m_Direction: 0
 --- !u!95 &1008465773748369283
 Animator:

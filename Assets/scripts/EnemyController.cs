@@ -61,7 +61,7 @@ public class EnemyController : MonoBehaviour
                 Debug.Log("Collider with Player!");
                 
                 {
-                    player.position = teleportTo.position;
+                    player.position = new Vector3(teleportTo.position.x, teleportTo.position.y, 0);
                 }
             }
         }
