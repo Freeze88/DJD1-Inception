@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: df3bfa9f4d61b934f9e2b69a469685aa
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 0014b93adebe8314aafc50255ff5ce87
+  - enabled: 1
     path: Assets/Scenes/AddShapeshift.unity
     guid: fccf373e367999c4fb7f07fe06dd3d36
   m_configObjects: {}

@@ -4,36 +4,41 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    
     [SerializeField] float moveSpeed = 75.0f;
+    [SerializeField] float moveDir = 1.0f;
     [SerializeField] Transform groundSensor;
     [SerializeField] Transform wallSensor;
     [SerializeField] Collider2D grabCollider;
-    [SerializeField] Transform teleportTo;
-    [SerializeField] Transform player;
-
     Rigidbody2D rigidBody;
     SpriteRenderer sprite;
-    float moveDir = 1.0f;
-    public Shapeshift Shapeshift;
+    GameObject teleportTo;
+    static GameObject Player;
+    static Shapeshift Shapeshift;
 
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+
+        teleportTo = GameObject.Find("LimboPosition");
+        Player = GameObject.Find("Player");
+        if (Shapeshift == null)
+            Shapeshift = Player.GetComponent<Shapeshift>();
     }
 
     void Update()
     {
         Vector2 currentVelocity = rigidBody.velocity;
-
         currentVelocity.x = moveDir * moveSpeed;
-
+        
         rigidBody.velocity = currentVelocity;
 
         if (moveDir > 0.0f) transform.rotation = Quaternion.identity;
         else transform.rotation = Quaternion.Euler(0, 180, 0);
 
         Collider2D collider = Physics2D.OverlapCircle(groundSensor.position, 2.0f, LayerMask.GetMask("Ground"));
+        
         if (collider == null)
         {
             moveDir = -moveDir;
@@ -55,13 +60,11 @@ public class EnemyController : MonoBehaviour
             Collider2D[] results = new Collider2D[8];
 
             int grabCollision = Physics2D.OverlapCollider(grabCollider, filter, results);
-
+           
             if (grabCollision > 0 && !Shapeshift.isShapeshifted)
             {
-                Debug.Log("Collider with Player!");
-                
                 {
-                    player.position = new Vector3(teleportTo.position.x, teleportTo.position.y, 0);
+                    Player.transform.position = new Vector2(teleportTo.transform.position.x,teleportTo.transform.position.y);
                 }
             }
         }

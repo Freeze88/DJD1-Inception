@@ -14,6 +14,7 @@ public class MovementController : MonoBehaviour
     [SerializeField] float jumpCD =       0.0f;
     [SerializeField] float Maxgravity =   25.0f;
     [SerializeField] float Timer;
+    [SerializeField] float ToIdleTimer =  0;
 
     //Defines the name of the objects on the Player unity object
     Rigidbody2D         rb;
@@ -40,7 +41,9 @@ public class MovementController : MonoBehaviour
             Collider2D collider = Physics2D.OverlapCircle(platform.position, 2.0f, LayerMask.GetMask("Ground"));
             return (collider != null);
         }
+
     }
+
     void Awake()
     {
         //Puts the components of the objects on the objects defined above
@@ -54,6 +57,7 @@ public class MovementController : MonoBehaviour
 
     void FixedUpdate()
     {
+        //move inputs and timers to update
         isGrounded = onGround;
 
         moveVector = rb.velocity;
@@ -66,7 +70,7 @@ public class MovementController : MonoBehaviour
                 Timer = 0;
                 moveVector.y = gravityFlip ? -jump : jump;
             }
-            Timer++;
+            Timer ++;
 
             gravity.y = gravityFlip ? 1.0f +Timer *1.5f: -1.0f - Timer *1.5f;
 
@@ -84,21 +88,29 @@ public class MovementController : MonoBehaviour
         if (isGrounded)
         {
             moveVector.y += gravity.y * Time.deltaTime;
-            if (jumpCD < 10)
-                jumpCD++;
+            jumpCD = Mathf.Min(jumpCD + 1, 10);
         }
         else
             moveVector.y += 100 * gravity.y * Time.deltaTime;
         
         Fall = (!Jump && !onGround);
-        moveVector.x = Input.GetAxis("Horizontal") * speed;
 
         rb.velocity = moveVector;
 
-        anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+        float positiveVelocityX = Mathf.Abs(rb.velocity.x);
+
+        if (positiveVelocityX < 1)
+            ToIdleTimer = Mathf.Min(ToIdleTimer + 1, 100);
+        else if (positiveVelocityX > 1)
+            ToIdleTimer = 0;
+
+        anim.SetFloat("Speed", positiveVelocityX);
         anim.SetFloat("Speedy", Mathf.Abs(rb.velocity.y));
         anim.SetBool("Jump", Jump);
         anim.SetBool("Fall", Fall);
+        anim.SetFloat("ToIdleTimer", ToIdleTimer);
+        if (ToIdleTimer > 0)
+            anim.SetInteger("Random", Random.Range(0,100));
     }
 
     private void Update()
@@ -109,17 +121,16 @@ public class MovementController : MonoBehaviour
         {
             gravityFlip = !gravityFlip;
             gravity.y *= -1;
-            
 
             if (gravityFlip)
             {
                 transform.rotation = new Quaternion(0.0f, 0.0f, 180.0f, 0.0f);
-                transform.position = new Vector3(transform.position.x, transform.position.y + 100, transform.position.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y + 150, transform.position.z);
             }
             else
             {
                 transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
-                transform.position = new Vector3(transform.position.x, transform.position.y - 100, transform.position.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y - 150, transform.position.z);
             }
         }
         
@@ -127,24 +138,18 @@ public class MovementController : MonoBehaviour
         if (!gravityFlip)
         {
             if (moveVector.x < 0.0f && transform.rotation.y == 0.0f)
-                //Rotates the player 180 degrees on the Y
                 transform.rotation = transform.rotation * Quaternion.Euler(0.0f, 180.0f, 0.0f);
 
-            //If the X of the player is positive and the rotation of the Y is negative
             else if (moveVector.x > 0.0f && transform.rotation.y < 0.0f)
-                //Rotates the player back to his original rotation
                 transform.rotation = transform.rotation * Quaternion.Euler(0.0f, -180.0f, 0.0f);
         }
         else if (gravityFlip)
         {
             if (moveVector.x > 0.0f && transform.rotation.z > 0.0f)
-            {
                 transform.rotation = transform.rotation * Quaternion.Euler(0.0f, 180.0f, 0.0f);
-            }
+
             else if (moveVector.x < 0.0f && transform.rotation.x < 0.0f)
-            {
                 transform.rotation = transform.rotation * Quaternion.Euler(0.0f, -180.0f, 0.0f);
-            }
         }
     }
 }
