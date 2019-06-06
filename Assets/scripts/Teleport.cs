@@ -39,7 +39,7 @@ public class Teleport : MonoBehaviour
     {
         InsidePortal = isIn;
 
-        if (InsidePortal && Input.GetKeyDown(KeyCode.E))
+        if (InsidePortal && Input.GetButtonDown("Fire1"))
         {
             Player.transform.position = teleportTo.position;
         }
@@ -52,7 +52,6 @@ public class Teleport : MonoBehaviour
             Button.anim.SetInteger("Transition", 1);
             
             Button.transform.position = doorCollider.transform.position;
-            Debug.Log("hello");
         }
     }
 

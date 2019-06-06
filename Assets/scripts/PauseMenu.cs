@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
     public SpriteRenderer FadeOut;
     GameObject pauseMenu;
     bool pause = false;
+    public Shapeshift shapeshift;
+    public Image Timer;
 
     void Start()
     {
@@ -17,6 +21,7 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
+        UpdateTimer();
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             pause = !pause;
@@ -37,6 +42,14 @@ public class PauseMenu : MonoBehaviour
         pause = false;
         StartCoroutine(Exiting());
     }
+
+    public void UpdateTimer()
+    {
+        Debug.Log("Here");
+        Debug.Log(shapeshift.GetTimer());
+        Timer.fillAmount = shapeshift.GetTimer();
+    }
+
     public IEnumerator pauses()
     {
         yield return new WaitForSeconds(5);

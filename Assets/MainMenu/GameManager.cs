@@ -48,7 +48,8 @@ public class GameManager : MonoBehaviour
 
     public void ChangeAudio(float newAudio)
     {
-        audio.volume = newAudio;
+        if (audio != null)
+            audio.volume = newAudio;
     }
 
     public void ChangeResolution(int resolution)

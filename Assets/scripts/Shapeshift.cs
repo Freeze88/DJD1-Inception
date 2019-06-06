@@ -8,17 +8,17 @@ public class Shapeshift : MonoBehaviour
     public RuntimeAnimatorController normalAnim;
     public RuntimeAnimatorController enemyAnim;
     [SerializeField] SpriteRenderer shapeshiftSprite;
-    [SerializeField] float shapeshiftDuration = 5.0f;
+    [SerializeField] float shapeshiftDuration = 10.0f;
 
     public sightController sight;
 
-    public float shapeshiftTimer;
+    float shapeshiftTimer;
 
     public bool isShapeshifted
     {
         get
         {
-            return shapeshiftTimer > 0.0f;
+            return shapeshiftTimer > 5.0f;
         }
     }
 
@@ -31,21 +31,26 @@ public class Shapeshift : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        
         //Debug.Log("Has enemies:" + sight.hasEnemiesWithin);
-        if (Input.GetKeyDown(KeyCode.Q) && sight.hasEnemiesWithin)
+        if (Input.GetButtonDown("Fire2") && sight.hasEnemiesWithin && shapeshiftTimer <= 0)
         {
             shapeshiftTimer = shapeshiftDuration;
         }
-        
-        if (shapeshiftTimer > 0.0f)
-        {
-            shapeshiftTimer -= Time.deltaTime;
-        }
+
+        if (shapeshiftTimer > 0)
+            shapeshiftTimer = Mathf.Min(shapeshiftTimer - 0.02f, shapeshiftDuration);
+
 
         if (isShapeshifted)
             anim.runtimeAnimatorController = enemyAnim;
 
-        if (shapeshiftTimer <= 0.0f)
+        if (shapeshiftTimer <= 5.0f)
             anim.runtimeAnimatorController = normalAnim;
+    }
+
+    public float GetTimer()
+    {
+        return shapeshiftTimer / shapeshiftDuration;
     }
 }

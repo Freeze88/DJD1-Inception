@@ -8,55 +8,47 @@ public class camera_move : MonoBehaviour
     float Yaxis;
 
     //Looks for an Object called Player
-    public GameObject Player;
-    
-    //Creates two constants for the X and Y limits of the camera movement
-    public float Xlimit = 150.0f;
-    public float Ylimit = 100.0f;
+    public MovementController Player;
 
-    //*** NOTE: The camera movement is better to be made on FixedUpdate since it's called every cycle instead of every frame, a change is bound to be made***//
+    public float Yoffset = 100.0f;
+    public float cameraSpeed = 5.0f;
+    bool MoveCamera = true;
+    bool PlayerFall;
+    float shakeTimer = 300;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        //Defines Yaxis as the Input (w,s, up and down)
-        Yaxis = Input.GetAxis("Vertical");
-
-
-        //____________________________________________________Camera Y movement______________________________________________________________________
-
-        //checks if the vertical position of the player is bigger than the vertical position of the camera plus the limit of distance between the two.
-        if (Player.transform.position.y >= transform.position.y + Ylimit)
-        {
-            //Makes the camera position the same as the player with the offset defined by the limit
-            transform.position = new Vector3(transform.position.x, Player.transform.position.y - Ylimit, transform.position.z);
-        }
-
-        //checks if the vertical position of the player is smaller than the vertical position of the camera minus the limit of distance between the two.
-        else if (Player.transform.position.y <= transform.position.y - Ylimit)
-        {
-            //Makes the camera position the same as the player with the offset defined by the limit
-            transform.position = new Vector3(transform.position.x, Player.transform.position.y + Ylimit, transform.position.z);
-        }
-
-
-
-        //____________________________________________________Camera X movement______________________________________________________________________
-
-        //checks if the horizontal position of the player is bigger than the horizontal position of the camera plus the limit of distance between the two.
-        if (Player.transform.position.x >= transform.position.x + Xlimit)
-        {
-            //Makes the camera position the same as the player with the offset defined by the limit
-            transform.position = new Vector3(Player.transform.position.x - Xlimit, transform.position.y, transform.position.z);
-        }
-
-        //checks if the horizontal position of the player is smaller than the horizontal position of the camera minus the limit of distance between the two.
-        else if (Player.transform.position.x <= transform.position.x - Xlimit)
-        {
-            //Makes the camera position the same as the player with the offset defined by the limit
-            transform.position = new Vector3(Player.transform.position.x + Xlimit, transform.position.y, transform.position.z);
-        }
         
+        if (Player.GetVelocityY() > 1000)
+            PlayerFall = true;
 
+        if (Player.GetIsGrounded() && PlayerFall)
+        {
+            StartCoroutine(Shake());
+        }
+        float offsetX = Input.GetAxis("Horizontal");
+        Vector3 offset = new Vector2((offsetX * 200), (Player.transform.rotation.z != 0 ? -Yoffset : Yoffset));
+        Vector2 newPos = Player.transform.position + offset;
+
+        float distance = Vector2.Distance(newPos, transform.position);
+
+        if (MoveCamera)
+        {
+            newPos = Vector2.MoveTowards(transform.position, newPos, (cameraSpeed * distance) * Time.fixedDeltaTime);
+
+            transform.position = newPos;
+        }
+    }
+
+    private IEnumerator Shake()
+    {
+        Vector3 shake = new Vector2(Random.Range(-5.0f, 5.0f), Random.Range(-5.0f, 5.0f));
+        transform.position += shake;
+        yield return new WaitForSeconds(0.25f);
+
+        PlayerFall = false;
+
+        Debug.Log("im here");
     }
 }
