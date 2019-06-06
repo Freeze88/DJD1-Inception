@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - LimboPosition
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -15,9 +17,9 @@ TagManager:
   - 
   - Player
   - Ground
-  - 
-  - 
-  - 
+  - LimboPosition
+  - Enemy
+  - sight
   - 
   - 
   - 
