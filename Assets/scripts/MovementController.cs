@@ -153,22 +153,22 @@ public class MovementController : MonoBehaviour
         Vector3 euler = transform.rotation.eulerAngles;
         if (!flipped)
         {
-            if (moveVector.x < 0)
+            if ((moveVector.x < 0) && (transform.right.x > 0.0f))
             {
                 transform.rotation = Quaternion.Euler(euler.x, 180, euler.z);
             }
-            else if (moveVector.x > 0)
+            else if ((moveVector.x > 0) && (transform.right.x < 0.0f))
             {
                 transform.rotation = Quaternion.Euler(euler.x, 0, euler.z);
             }
         }
         else
         {
-            if (moveVector.x < 0)
+            if ((moveVector.x < 0) && (transform.right.x > 0.0f))
             {
                 transform.rotation = Quaternion.Euler(euler.x, 0, euler.z);
             }
-            else if (moveVector.x > 0)
+            else if ((moveVector.x > 0) && (transform.right.x < 0.0f))
             {
                 transform.rotation = Quaternion.Euler(euler.x, 180, euler.z);
             }
