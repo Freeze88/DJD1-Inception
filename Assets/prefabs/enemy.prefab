@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 200
+  moveDir: 1
   groundSensor: {fileID: 8205920436889330216}
   wallSensor: {fileID: 8205920437419765767}
   grabCollider: {fileID: 8205920438272063134}
@@ -195,8 +196,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.902893, y: 56.60504}
-  m_Size: {x: 83.22986, y: 120}
+  m_Offset: {x: 2.902893, y: 58.597885}
+  m_Size: {x: 83.22986, y: 116.01431}
   m_Direction: 0
 --- !u!95 &8205920438272063133
 Animator:

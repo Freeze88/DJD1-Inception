@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravityFlip: 0
   isGrounded: 0
-  Jump: 0
+  JumpIsPressed: 0
   speed: 300
   jump: 600
   MaxJumpTime: 20
@@ -108,6 +108,10 @@ MonoBehaviour:
   Maxgravity: 25
   Timer: 0
   ToIdleTimer: 0
+  V_input: 0
+  H_input: 0
+  GravityIsPressed: 0
+  flipped: 0
   platform: {fileID: 0}
 --- !u!114 &9115805569959876395
 MonoBehaviour:
@@ -126,7 +130,6 @@ MonoBehaviour:
   shapeshiftSprite: {fileID: 8573705591599468834}
   shapeshiftDuration: 5
   sight: {fileID: 6332290744664479923}
-  shapeshiftTimer: 0
 --- !u!70 &6072096371277446850
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
