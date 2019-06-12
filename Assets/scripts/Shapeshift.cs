@@ -9,6 +9,7 @@ public class Shapeshift : MonoBehaviour
     public RuntimeAnimatorController enemyAnim;
     [SerializeField] SpriteRenderer shapeshiftSprite;
     [SerializeField] float shapeshiftDuration = 10.0f;
+    public AudioSource morphSound;
 
     public sightController sight;
 
@@ -36,6 +37,7 @@ public class Shapeshift : MonoBehaviour
         if (Input.GetButtonDown("Fire2") && sight.hasEnemiesWithin && shapeshiftTimer <= 0)
         {
             shapeshiftTimer = shapeshiftDuration;
+            morphSound.Play();
         }
 
         if (shapeshiftTimer > 0)

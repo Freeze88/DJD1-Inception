@@ -9,9 +9,10 @@ public class Teleport : MonoBehaviour
     GameObject Player;
     Collider2D doorCollider;
     static ButtonAction Button;
-    
+
     [SerializeField] float Timer;
     bool InsidePortal;
+    public AudioSource doorSound;
 
     bool isIn
     {
@@ -42,6 +43,7 @@ public class Teleport : MonoBehaviour
         if (InsidePortal && Input.GetButtonDown("Fire1"))
         {
             Player.transform.position = teleportTo.position;
+            doorSound.Play();
         }
     }
 
@@ -50,7 +52,7 @@ public class Teleport : MonoBehaviour
         if (collider.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             Button.anim.SetInteger("Transition", 1);
-            
+
             Button.transform.position = doorCollider.transform.position;
         }
     }

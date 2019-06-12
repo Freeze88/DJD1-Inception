@@ -28,6 +28,13 @@ public class MovementController : MonoBehaviour
     CapsuleCollider2D CCollider;
     public Transform platform;
     Coroutine flipCoroutine;
+    public AudioSource gravSound;
+    public AudioSource jumpSound;
+    public AudioSource walkSound;
+
+    //walkSound.volume = Random.Range(0.6f, 1);
+    //walkSound.pitch = Random.Range(0.6f, 1.2f);
+    //walkSound.Play();
 
     //Instead of using rigibbody forces creates a constant vector for the gravity
     Vector3 gravity = new Vector3(0f, -2250.0f, 0f);
@@ -74,6 +81,7 @@ public class MovementController : MonoBehaviour
             {
                 Timer = 0;
                 moveVector.y = gravityFlip ? -jump : jump;
+                jumpSound.Play();
             }
             Timer++;
 
@@ -139,6 +147,7 @@ public class MovementController : MonoBehaviour
             gravityFlip = !gravityFlip;
             gravity.y = gravityFlip ? -Maxgravity : Maxgravity;
             GravityIsPressed = true;
+            gravSound.Play();
             if (flipCoroutine != null)
                 StopCoroutine(flipCoroutine);
             flipCoroutine = null;
