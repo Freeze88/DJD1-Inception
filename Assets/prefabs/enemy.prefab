@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 8205920438272063135}
   - component: {fileID: 8205920438272063134}
   - component: {fileID: 8205920438272063133}
+  - component: {fileID: 6070539815431136451}
   - component: {fileID: 2293721586128491613}
   m_Layer: 11
   m_Name: enemy
@@ -163,7 +164,6 @@ MonoBehaviour:
   groundSensor: {fileID: 8205920436889330216}
   wallSensor: {fileID: 8205920437419765767}
   grabCollider: {fileID: 8205920438272063134}
-  hitSound: {fileID: 2293721586128491613}
 --- !u!50 &8205920438272063135
 Rigidbody2D:
   serializedVersion: 4
@@ -198,8 +198,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.902893, y: 58.597885}
-  m_Size: {x: 83.22986, y: 116.01431}
+  m_Offset: {x: 1.6480103, y: 58.597885}
+  m_Size: {x: 85.739624, y: 116.01431}
   m_Direction: 0
 --- !u!95 &8205920438272063133
 Animator:
@@ -220,6 +220,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6070539815431136451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8205920438272063131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c6cf289d691f894288d54a6f7baa984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleportTo: {fileID: 0}
+  Timer: 0
+  resetSound: {fileID: 2293721586128491613}
 --- !u!82 &2293721586128491613
 AudioSource:
   m_ObjectHideFlags: 0
