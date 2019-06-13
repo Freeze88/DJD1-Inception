@@ -65,7 +65,6 @@
     <Compile Include="Assets\scripts\camera_move.cs" />
     <Compile Include="Assets\scripts\CameraShake.cs" />
     <Compile Include="Assets\scripts\EnemyController.cs" />
-    <Compile Include="Assets\scripts\InputSounds.cs" />
     <Compile Include="Assets\scripts\MovementController.cs" />
     <Compile Include="Assets\scripts\PauseMenu.cs" />
     <Compile Include="Assets\scripts\PositionReset.cs" />

@@ -81,6 +81,8 @@ public class MovementController : MonoBehaviour
             {
                 Timer = 0;
                 moveVector.y = gravityFlip ? -jump : jump;
+                jumpSound.volume = Random.Range(0.6f, 1);
+                jumpSound.pitch = Random.Range(0.8f, 1);
                 jumpSound.Play();
             }
             Timer++;
