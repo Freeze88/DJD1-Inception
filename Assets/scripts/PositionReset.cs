@@ -5,9 +5,12 @@ using UnityEngine;
 public class PositionReset : MonoBehaviour
 {
     public Transform teleportTo;
-    public Transform Player;
+    GameObject Player;
+    Collider2D doorCollider;
+
     [SerializeField] float Timer;
     bool InsidePortal;
+    public AudioSource resetSound;
 
     bool isIn
     {
@@ -17,30 +20,25 @@ public class PositionReset : MonoBehaviour
             return (collider != null);
         }
     }
-    // Start is called before the first frame update
     void Start()
     {
+        doorCollider = GetComponent<BoxCollider2D>();
+        Player = GameObject.Find("Player");
     }
 
     void FixedUpdate()
     {
-        if (Timer <= 0)
-        {
-            Timer = 0;
-        }
-        else
-        {
-            Timer--;
-        }
+        Timer = Mathf.Max(Timer - 1, 0);
     }
-    // Update is called once per frame
+
     void Update()
     {
         InsidePortal = isIn;
 
         if (InsidePortal)
         {
-            Player.position = teleportTo.position;
+            Player.transform.position = teleportTo.position;
+            resetSound.Play();
         }
     }
 }

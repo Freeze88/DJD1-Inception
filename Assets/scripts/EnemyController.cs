@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
     GameObject teleportTo;
     static GameObject Player;
     static Shapeshift Shapeshift;
+    public AudioSource hitSound;
 
     void Start()
     {
@@ -65,6 +66,7 @@ public class EnemyController : MonoBehaviour
             {
                 {
                     Player.transform.position = new Vector2(teleportTo.transform.position.x,teleportTo.transform.position.y);
+                    hitSound.Play();
                 }
             }
         }
