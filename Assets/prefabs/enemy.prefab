@@ -134,7 +134,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 15f6a116849325248a8259a5c7513293, type: 3}
   m_Color: {r: 0.69803923, g: 0.14314187, b: 0.038848326, a: 1}
   m_FlipX: 0
@@ -163,6 +163,7 @@ MonoBehaviour:
   groundSensor: {fileID: 8205920436889330216}
   wallSensor: {fileID: 8205920437419765767}
   grabCollider: {fileID: 8205920438272063134}
+  teleportTo: {fileID: 0}
   hitSound: {fileID: 2293721586128491613}
 --- !u!50 &8205920438272063135
 Rigidbody2D:
