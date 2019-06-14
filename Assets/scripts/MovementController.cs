@@ -31,6 +31,7 @@ public class MovementController : MonoBehaviour
     public AudioSource gravSound;
     public AudioSource jumpSound;
     public AudioSource walkSound;   
+    public AudioSource landingSound;   
 
     //Instead of using rigibbody forces creates a constant vector for the gravity
     Vector3 gravity = new Vector3(0f, -2250.0f, 0f);
