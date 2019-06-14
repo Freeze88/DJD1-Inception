@@ -18,7 +18,7 @@ public class Teleport : MonoBehaviour
     {
         get
         {
-            Collider2D collider = Physics2D.OverlapCircle(transform.position, 20.0f, LayerMask.GetMask("Player"));
+            Collider2D collider = Physics2D.OverlapCircle(transform.position, 40.0f, LayerMask.GetMask("Player"));
             return (collider != null);
         }
     }

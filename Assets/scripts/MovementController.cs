@@ -30,11 +30,7 @@ public class MovementController : MonoBehaviour
     Coroutine flipCoroutine;
     public AudioSource gravSound;
     public AudioSource jumpSound;
-    public AudioSource walkSound;
-
-    //walkSound.volume = Random.Range(0.6f, 1);
-    //walkSound.pitch = Random.Range(0.6f, 1.2f);
-    //walkSound.Play();
+    public AudioSource walkSound;   
 
     //Instead of using rigibbody forces creates a constant vector for the gravity
     Vector3 gravity = new Vector3(0f, -2250.0f, 0f);
@@ -149,6 +145,7 @@ public class MovementController : MonoBehaviour
             gravityFlip = !gravityFlip;
             gravity.y = gravityFlip ? -Maxgravity : Maxgravity;
             GravityIsPressed = true;
+            gravSound.pitch = Random.Range(0.8f, 1.2f);
             gravSound.Play();
             if (flipCoroutine != null)
                 StopCoroutine(flipCoroutine);
@@ -216,6 +213,13 @@ public class MovementController : MonoBehaviour
     public bool GetIsGrounded()
     {
         return isGrounded;
+    }
+
+    public void Footstep()
+    {
+        walkSound.volume = Random.Range(0.6f, 1);
+        walkSound.pitch = Random.Range(0.6f, 1.2f);
+        walkSound.Play();
     }
 }
 

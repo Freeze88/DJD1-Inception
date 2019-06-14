@@ -12,7 +12,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] Collider2D grabCollider;
     Rigidbody2D rigidBody;
     SpriteRenderer sprite;
-    GameObject teleportTo;
+    public Transform teleportTo;
     static GameObject Player;
     static Shapeshift Shapeshift;
     public AudioSource hitSound;
@@ -22,7 +22,6 @@ public class EnemyController : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
 
-        teleportTo = GameObject.Find("LimboPosition");
         Player = GameObject.Find("Player");
         if (Shapeshift == null)
             Shapeshift = Player.GetComponent<Shapeshift>();
@@ -65,7 +64,7 @@ public class EnemyController : MonoBehaviour
             if (grabCollision > 0 && !Shapeshift.isShapeshifted)
             {
                 {
-                    Player.transform.position = new Vector2(teleportTo.transform.position.x,teleportTo.transform.position.y);
+                    Player.transform.position = teleportTo.position;
                     hitSound.Play();
                 }
             }
