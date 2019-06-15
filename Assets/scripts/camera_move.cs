@@ -9,7 +9,7 @@ public class camera_move : MonoBehaviour
 
     //Looks for an Object called Player
     public MovementController Player;
-
+    
     public float Yoffset = 100.0f;
     public float cameraSpeed = 5.0f;
     bool MoveCamera = true;

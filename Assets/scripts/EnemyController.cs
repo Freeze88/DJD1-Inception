@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] Collider2D grabCollider;
     Rigidbody2D rigidBody;
     SpriteRenderer sprite;
+    private Animator anim;
     public Transform teleportTo;
     static GameObject Player;
     static Shapeshift Shapeshift;
@@ -21,6 +22,7 @@ public class EnemyController : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
 
         Player = GameObject.Find("Player");
         if (Shapeshift == null)

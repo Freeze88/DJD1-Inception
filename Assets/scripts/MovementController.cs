@@ -31,7 +31,10 @@ public class MovementController : MonoBehaviour
     public AudioSource gravSound;
     public AudioSource jumpSound;
     public AudioSource walkSound;   
-    public AudioSource landingSound;   
+    public AudioSource landingSound;
+    private bool Fall;
+    private bool Jump;
+
 
     //Instead of using rigibbody forces creates a constant vector for the gravity
     Vector3 gravity = new Vector3(0f, -2250.0f, 0f);
@@ -74,6 +77,9 @@ public class MovementController : MonoBehaviour
 
         if (JumpIsPressed)
         {
+            Fall = false;
+            Jump = true;
+
             if (isGrounded)
             {
                 Timer = 0;
@@ -85,6 +91,9 @@ public class MovementController : MonoBehaviour
             Timer++;
 
             gravity.y = gravityFlip ? 1.0f + Timer * 130f : -1.0f - Timer * 130f;
+
+            Fall = true;
+            Jump = false;
 
             if (Timer >= MaxJumpTime) jumpCD = 0;
         }
@@ -140,6 +149,8 @@ public class MovementController : MonoBehaviour
         JumpIsPressed = (Input.GetButton("Jump") && jumpCD >= 10);
         V_input = Input.GetAxis("Vertical");
         H_input = Input.GetAxis("Horizontal");
+        anim.SetBool("Fall", Fall);
+        anim.SetBool("Jump", Jump);
 
         if (Input.GetKeyDown(KeyCode.W) && isGrounded && !GravityIsPressed)
         {
