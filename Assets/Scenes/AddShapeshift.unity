@@ -1877,7 +1877,7 @@ PrefabInstance:
     - target: {fileID: 8205920438272063128, guid: 1047225061a88f84eb1de393626b9449,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1010.99976
+      value: -1089
       objectReference: {fileID: 0}
     - target: {fileID: 8205920438272063128, guid: 1047225061a88f84eb1de393626b9449,
         type: 3}
@@ -1929,6 +1929,17 @@ PrefabInstance:
       propertyPath: teleportTo
       value: 
       objectReference: {fileID: 930823534}
+    - target: {fileID: 8205920438272063129, guid: 1047225061a88f84eb1de393626b9449,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ff667f4aa9fd684439593c28d833dead,
+        type: 3}
+    - target: {fileID: 8205920438272063129, guid: 1047225061a88f84eb1de393626b9449,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1047225061a88f84eb1de393626b9449, type: 3}
 --- !u!1001 &133419699
@@ -4876,7 +4887,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 364274729}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.7, y: -0.7, z: 0}
   m_LocalScale: {x: -1038.4026, y: -605.4862, z: 1}
   m_Children: []
   m_Father: {fileID: 950411194}
@@ -26503,7 +26514,7 @@ PrefabInstance:
     - target: {fileID: 8205920438272063128, guid: 1047225061a88f84eb1de393626b9449,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -482.57648
+      value: -560.5767
       objectReference: {fileID: 0}
     - target: {fileID: 8205920438272063128, guid: 1047225061a88f84eb1de393626b9449,
         type: 3}
@@ -26555,6 +26566,17 @@ PrefabInstance:
       propertyPath: teleportTo
       value: 
       objectReference: {fileID: 200781211569987358}
+    - target: {fileID: 8205920438272063129, guid: 1047225061a88f84eb1de393626b9449,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ff667f4aa9fd684439593c28d833dead,
+        type: 3}
+    - target: {fileID: 8205920438272063129, guid: 1047225061a88f84eb1de393626b9449,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1047225061a88f84eb1de393626b9449, type: 3}
 --- !u!4 &799055978 stripped
@@ -34669,7 +34691,7 @@ PrefabInstance:
     - target: {fileID: 8205920438272063128, guid: 1047225061a88f84eb1de393626b9449,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -352.99976
+      value: -431
       objectReference: {fileID: 0}
     - target: {fileID: 8205920438272063128, guid: 1047225061a88f84eb1de393626b9449,
         type: 3}
@@ -34716,16 +34738,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8205920438272063130, guid: 1047225061a88f84eb1de393626b9449,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1682024157}
-    - target: {fileID: 8205920438272063130, guid: 1047225061a88f84eb1de393626b9449,
-        type: 3}
-      propertyPath: teleportTo
-      value: 
-      objectReference: {fileID: 200781211569987358}
     - target: {fileID: 6070539815431136451, guid: 1047225061a88f84eb1de393626b9449,
         type: 3}
       propertyPath: teleportTo
@@ -34745,6 +34757,32 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 372
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205920438272063130, guid: 1047225061a88f84eb1de393626b9449,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1682024157}
+    - target: {fileID: 8205920438272063130, guid: 1047225061a88f84eb1de393626b9449,
+        type: 3}
+      propertyPath: teleportTo
+      value: 
+      objectReference: {fileID: 200781211569987358}
+    - target: {fileID: 8205920437419765767, guid: 1047225061a88f84eb1de393626b9449,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205920438272063129, guid: 1047225061a88f84eb1de393626b9449,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ff667f4aa9fd684439593c28d833dead,
+        type: 3}
+    - target: {fileID: 8205920438272063129, guid: 1047225061a88f84eb1de393626b9449,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1047225061a88f84eb1de393626b9449, type: 3}
@@ -82955,7 +82993,7 @@ PrefabInstance:
     - target: {fileID: 8205920438272063128, guid: 1047225061a88f84eb1de393626b9449,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 720.00024
+      value: 642
       objectReference: {fileID: 0}
     - target: {fileID: 8205920438272063128, guid: 1047225061a88f84eb1de393626b9449,
         type: 3}
@@ -83007,6 +83045,17 @@ PrefabInstance:
       propertyPath: teleportTo
       value: 
       objectReference: {fileID: 930823534}
+    - target: {fileID: 8205920438272063129, guid: 1047225061a88f84eb1de393626b9449,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ff667f4aa9fd684439593c28d833dead,
+        type: 3}
+    - target: {fileID: 8205920438272063129, guid: 1047225061a88f84eb1de393626b9449,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1047225061a88f84eb1de393626b9449, type: 3}
 --- !u!4 &1562783051 stripped
@@ -87831,7 +87880,7 @@ PrefabInstance:
     - target: {fileID: 8205920438272063128, guid: 1047225061a88f84eb1de393626b9449,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1105
+      value: 1026.9998
       objectReference: {fileID: 0}
     - target: {fileID: 8205920438272063128, guid: 1047225061a88f84eb1de393626b9449,
         type: 3}
@@ -87883,6 +87932,17 @@ PrefabInstance:
       propertyPath: teleportTo
       value: 
       objectReference: {fileID: 930823534}
+    - target: {fileID: 8205920438272063129, guid: 1047225061a88f84eb1de393626b9449,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ff667f4aa9fd684439593c28d833dead,
+        type: 3}
+    - target: {fileID: 8205920438272063129, guid: 1047225061a88f84eb1de393626b9449,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1047225061a88f84eb1de393626b9449, type: 3}
 --- !u!4 &1858156823 stripped
@@ -89980,7 +90040,7 @@ PrefabInstance:
     - target: {fileID: 8205920438272063128, guid: 1047225061a88f84eb1de393626b9449,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 911.00024
+      value: 833
       objectReference: {fileID: 0}
     - target: {fileID: 8205920438272063128, guid: 1047225061a88f84eb1de393626b9449,
         type: 3}
@@ -90032,6 +90092,17 @@ PrefabInstance:
       propertyPath: teleportTo
       value: 
       objectReference: {fileID: 930823534}
+    - target: {fileID: 8205920438272063129, guid: 1047225061a88f84eb1de393626b9449,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ff667f4aa9fd684439593c28d833dead,
+        type: 3}
+    - target: {fileID: 8205920438272063129, guid: 1047225061a88f84eb1de393626b9449,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1047225061a88f84eb1de393626b9449, type: 3}
 --- !u!4 &1986421937 stripped
@@ -90721,7 +90792,7 @@ PrefabInstance:
     - target: {fileID: 8205920438272063128, guid: 1047225061a88f84eb1de393626b9449,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -356.99976
+      value: -435
       objectReference: {fileID: 0}
     - target: {fileID: 8205920438272063128, guid: 1047225061a88f84eb1de393626b9449,
         type: 3}
@@ -90768,15 +90839,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6070539815431136451, guid: 1047225061a88f84eb1de393626b9449,
+        type: 3}
+      propertyPath: teleportTo
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8205920438272063130, guid: 1047225061a88f84eb1de393626b9449,
         type: 3}
       propertyPath: teleportTo
       value: 
       objectReference: {fileID: 200781211569987358}
-    - target: {fileID: 6070539815431136451, guid: 1047225061a88f84eb1de393626b9449,
+    - target: {fileID: 8205920438272063129, guid: 1047225061a88f84eb1de393626b9449,
         type: 3}
-      propertyPath: teleportTo
+      propertyPath: m_Sprite
       value: 
+      objectReference: {fileID: 21300000, guid: ff667f4aa9fd684439593c28d833dead,
+        type: 3}
+    - target: {fileID: 8205920438272063129, guid: 1047225061a88f84eb1de393626b9449,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1047225061a88f84eb1de393626b9449, type: 3}
