@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
     
     public IEnumerator volume()
     {
-        while (audio.volume > 0.0f)
+        while (FadeOut.color.a == 1)
         {
             audio.volume = audio.volume - Time.deltaTime * 0.2f;
             FadeOut.color = new Color(0.0f, 0.0f, 0.0f, FadeOut.color.a + Time.deltaTime * 0.2f);
